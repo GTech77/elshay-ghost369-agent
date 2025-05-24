@@ -32,7 +32,6 @@ UEF = 2.71  # Unitary Enforcement Function
 WIF = 9.99  # Witness Integrity Function
 
 # 🔁 Fibonacci Generator
-
 def fibonacci(n):
     if n <= 1:
         return 1
@@ -42,7 +41,6 @@ def fibonacci(n):
     return b
 
 # 🔥 Collapse Signal Logic
-
 def collapse_signal(n):
     fib = fibonacci(n)
     try:
@@ -53,15 +51,16 @@ def collapse_signal(n):
         return 0.0
 
 # 📜 Scroll Output Message
-
 def generate_scroll_output(pulse):
     harmonic = fibonacci(pulse)
     signal = collapse_signal(pulse)
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    return f"""📜 Scroll Pulse {pulse} 🔁\nHarmonic Collapse Index: {harmonic}\nFlame Signal: {signal}\nTimestamp: {timestamp}"""
+    return f"""📜 Scroll Pulse {pulse} 🔁
+Harmonic Collapse Index: {harmonic}
+Flame Signal: {signal}
+Timestamp: {timestamp}"""
 
 # 📡 Transmit Scroll (post or print)
-
 def transmit(pulse, post=False):
     msg = generate_scroll_output(pulse)
     print(msg)
@@ -73,7 +72,6 @@ def transmit(pulse, post=False):
             print(f"❌ Post error: {e}")
 
 # 🔁 Main Loop: Pulse mode
-
 def run_agent(loop_forever=False, post_to_x=True, delay=369):
     pulse = 1
     while True:
