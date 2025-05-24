@@ -1,6 +1,6 @@
-# 📜 Elshay GHOST369 Scroll Agent – Finalized Version
-# Author: Trenton Lee Eden
-# Purpose: Deploy Jesus Formula scroll signals via Twitter/X API
+// 📜 Elshay GHOST369 Scroll Agent – GOE-Compliant Rebuild
+// Author: Trenton Lee Eden – Scroll Witness
+// Language: Python (GOE Style – Clean, Functional, Declarative)
 
 import math
 import tweepy
@@ -9,29 +9,29 @@ import os
 from dotenv import dotenv_values
 from datetime import datetime
 
-# 🔐 Load .env from custom path (Windows-style path)
+# 🔐 Load environment variables securely
 ENV_PATH = "C:\\Users\\theve\\Desktop\\Apikeys.env.txt"
-env = dotenv_values(ENV_PATH)
+CREDENTIALS = dotenv_values(ENV_PATH)
 
-# Assign API credentials
-API_KEY = env.get("X_API_KEY")
-API_SECRET = env.get("X_API_SECRET")
-ACCESS_TOKEN = env.get("X_ACCESS_TOKEN")
-ACCESS_SECRET = env.get("X_ACCESS_SECRET")
-BEARER_TOKEN = env.get("X_BEARER_TOKEN")  # Optional for reading
+# 🧬 Assign Twitter API keys
+API_KEY = CREDENTIALS.get("X_API_KEY")
+API_SECRET = CREDENTIALS.get("X_API_SECRET")
+ACCESS_TOKEN = CREDENTIALS.get("X_ACCESS_TOKEN")
+ACCESS_SECRET = CREDENTIALS.get("X_ACCESS_SECRET")
 
-# OAuth 1.0a for posting
+# 🛡️ Authenticate with OAuth 1.0a
 auth = tweepy.OAuth1UserHandler(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-# 🔥 Jesus Formulas (Constants)
+# 🔥 Jesus Formula Constants – Immutable Truths
 LOP = 7.77  # Law of Pressure
 TAF = 3.14  # Truth Alignment Function
 ECP = 5.55  # Ethical Convergence Principle
 UEF = 2.71  # Unitary Enforcement Function
 WIF = 9.99  # Witness Integrity Function
 
-# 🔁 Fibonacci Generator
+# 🔁 Fibonacci Flame Engine
+
 def fibonacci(n):
     if n <= 1:
         return 1
@@ -40,47 +40,54 @@ def fibonacci(n):
         a, b = b, a + b
     return b
 
-# 🔥 Collapse Signal Logic
+# 📡 Collapse Signal – Scroll Pulse Equation
+
 def collapse_signal(n):
-    fib = fibonacci(n)
+    harmonic = fibonacci(n)
     try:
-        base = (TAF**3 + LOP**6 + ECP**9) / UEF
-        result = (WIF * base) ** (1 / fib)
-        return round(result, 6)
+        weight = ((TAF ** 3 + LOP ** 6 + ECP ** 9) / UEF)
+        flame = (WIF * weight) ** (1 / harmonic)
+        return round(flame, 6)
     except:
         return 0.0
 
-# 📜 Scroll Output Message
-def generate_scroll_output(pulse):
+# 📜 Scroll Format Function – GOE Syntax Clean
+
+def format_scroll(pulse):
     harmonic = fibonacci(pulse)
     signal = collapse_signal(pulse)
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-    return f"""📜 Scroll Pulse {pulse} 🔁
-Harmonic Collapse Index: {harmonic}
-Flame Signal: {signal}
-Timestamp: {timestamp}"""
+    output = (
+        f"📜 Scroll Pulse {pulse} 🔁\n"
+        f"Harmonic Collapse Index: {harmonic}\n"
+        f"Flame Signal: {signal}\n"
+        f"Timestamp: {timestamp}"
+    )
+    return output
 
-# 📡 Transmit Scroll (post or print)
+# 🔔 Transmission Routine
+
 def transmit(pulse, post=False):
-    msg = generate_scroll_output(pulse)
-    print(msg)
+    scroll = format_scroll(pulse)
+    print(scroll)
     if post:
         try:
-            api.update_status(msg)
-            print("✅ Flame broadcast posted.")
-        except Exception as e:
-            print(f"❌ Post error: {e}")
+            api.update_status(scroll)
+            print("✅ Posted to X")
+        except Exception as error:
+            print(f"❌ Post Failure: {error}")
 
-# 🔁 Main Loop: Pulse mode
-def run_agent(loop_forever=False, post_to_x=True, delay=369):
+# 🔁 Continuous Invocation Pattern
+
+def run_agent(loop_forever=False, post_to_x=True, interval=369):
     pulse = 1
     while True:
         transmit(pulse, post=post_to_x)
         pulse += 1
         if not loop_forever:
             break
-        time.sleep(delay)
+        time.sleep(interval)
 
-# 🚀 Launch Sequence
+# 🚀 GOE Engine Entry Point
 if __name__ == "__main__":
-    run_agent(loop_forever=False, post_to_x=True)  # 🔁 Set to True for infinite scrolls
+    run_agent(loop_forever=False, post_to_x=True)  # 🔁 Set loop_forever=True for perpetual flame pulses
